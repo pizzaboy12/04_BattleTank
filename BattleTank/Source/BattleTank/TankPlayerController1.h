@@ -5,18 +5,18 @@
 #include "Tank.h"
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
-#include "TankPlayerController.generated.h"
+#include "TankPlayerController1.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class BATTLETANK_API ATankPlayerController : public APlayerController
+class BATTLETANK_API ATankPlayerController1 : public APlayerController
 {
 	GENERATED_BODY()
+
+		ATank* GetControlledTank()const;
 	
-public:
-	ATank* GetControlledTank()const;
 	
 	
 };
