@@ -4,8 +4,12 @@
 
 #include "Tank.h"
 #include "CoreMinimal.h"
+#include "Engine/World.h"
+#include "DrawDebugHelpers.h"
 #include "GameFramework/PlayerController.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "TankPlayerController1.generated.h"
+
 
 /**
  * 
@@ -15,8 +19,13 @@ class BATTLETANK_API ATankPlayerController1 : public APlayerController
 {
 	GENERATED_BODY()
 
-		ATank* GetControlledTank()const;
-	
+public:
+
 	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaTime)override;
+private:
 	
+	void AimTowardsCrosshair();
+	ATank* GetControlledTank()const;
+	bool GetSightRayHitLocation(FVector &OutHitLocation)const;
 };
